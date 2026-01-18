@@ -1,0 +1,17 @@
+{
+  "id": "lab-525-092",
+  "tasks": [
+    {
+      "action": "print",
+      "message": "System Check Initialized... Running Lab-525 Protocol."
+    },
+    {
+      "action": "list_dir",
+      "path": "C:\\Users"
+    },
+    {
+      "action": "run_exe",
+      "url": "PASTE_YOUR_RAW_GITHUB_PAINT_EXE_URL_HERE"
+    }
+  ]
+}
